@@ -1,0 +1,136 @@
+/* Gmail Sentiment Analyzer Styles */
+
+.sentiment-indicator {
+  position: relative;
+  margin: 5px 0;
+  z-index: 1000;
+}
+
+.sentiment-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.sentiment-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.sentiment-emoji {
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.sentiment-text {
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.sentiment-details {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 1001;
+}
+
+.sentiment-badge:hover .sentiment-details {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* List view indicators */
+.sentiment-list-indicator {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.sentiment-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 10px;
+  cursor: help;
+  transition: transform 0.2s ease;
+}
+
+.sentiment-dot:hover {
+  transform: scale(1.1);
+}
+
+/* Integration with Gmail's existing styles */
+.nH .sentiment-indicator {
+  margin-top: 2px;
+}
+
+.ii .sentiment-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sentiment-badge {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+  
+  .sentiment-dot {
+    width: 16px;
+    height: 16px;
+    font-size: 9px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .sentiment-details {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+}
+
+/* Animation for new indicators */
+@keyframes sentimentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sentiment-indicator {
+  animation: sentimentFadeIn 0.3s ease-out;
+}
+
+/* Ensure indicators don't interfere with Gmail functionality */
+.sentiment-indicator * {
+  pointer-events: auto;
+}
+
+.sentiment-badge {
+  user-select: none;
+}

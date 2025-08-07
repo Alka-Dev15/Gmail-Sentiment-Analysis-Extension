@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail Sentiment Analyzer",
+  "version": "1.0",
+  "description": "This extension analyzes the sentiment of Gmail messages",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["sentiment.js", "content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
